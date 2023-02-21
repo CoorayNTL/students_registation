@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
-//import android.widget.Toast
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var viewModel: StudentViewModel
     private lateinit var studentRecyclerView: RecyclerView
-   // private lateinit var adapter: StudentRecyclerViewAdapter
+    private lateinit var adapter: StudentRecyclerViewAdapter
     private var isListItemClicked = false
 
     private lateinit var selectedStudent: Student
@@ -60,7 +60,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        //initRecyclerView()
+        initRecyclerView()
 
 
     }
@@ -106,23 +106,23 @@ class MainActivity : AppCompatActivity() {
         emailEditText.setText("")
     }
 
-//    private fun initRecyclerView() {
-//
-//        studentRecyclerView.layoutManager = LinearLayoutManager(this)
-//        adapter = StudentRecyclerViewAdapter { selectedItem: Student ->
-//            listItemClicked(selectedItem)
-//        }
-//        studentRecyclerView.adapter = adapter
-//
-//        displayStudentsList()
-//    }
-//
-//    private fun displayStudentsList() {
-//        viewModel.students.observe(this, {
-//            adapter.setList(it)
-//            adapter.notifyDataSetChanged()
-//        })
-//    }
+    private fun initRecyclerView() {
+
+        studentRecyclerView.layoutManager = LinearLayoutManager(this)
+        adapter = StudentRecyclerViewAdapter { selectedItem: Student ->
+            listItemClicked(selectedItem)
+        }
+        studentRecyclerView.adapter = adapter
+
+        displayStudentsList()
+    }
+
+    private fun displayStudentsList() {
+        viewModel.students.observe(this, {
+            adapter.setList(it)
+            adapter.notifyDataSetChanged()
+        })
+    }
 
     private fun listItemClicked(student: Student) {
 //        Toast.makeText(
