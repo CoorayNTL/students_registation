@@ -99,3 +99,4 @@ dbHelper.deleteRecord(1)
 Note that in a real-world app, you would typically use these methods in conjunction with a user interface to allow the user to create, read, update, and delete records. 
 Additionally, 
 you should handle errors and exceptions appropriately, and validate data before it is added to the database
+![crudkotlin](https://user-images.githubusercontent.com/96631498/220256560-8de71a0e-202f-4436-8504-ea4cddc61873.PNG)
